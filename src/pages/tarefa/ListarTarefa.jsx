@@ -90,7 +90,14 @@ const ListarTarefa = () => {
         /> 
         <CardContent>
             <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+            <Table sx={{
+                            minWidth: 650, 
+                            backgroundColor: 'rgb(240, 240, 240)', 
+                            borderRadius: 2,                        
+                            boxShadow: 3,                           
+                            border: '1px solid rgba(0, 0, 0, 0.1)',
+                            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'  
+                          }} size="medium" aria-label="a dense table">
                 <TableHead>
                 <TableRow>
                     <TableCell>#</TableCell>
@@ -125,7 +132,14 @@ const ListarTarefa = () => {
                         <Button variant="contained" color="success" onClick={() => handleEditar(row.idTarefa)}><EditIcon fontSize="small" /></Button>            
                       </TableCell>
                       <TableCell align="center">
-                        <Button variant="contained" color="error" onClick={() => handleDeletar(row.idTarefa)}><DeleteIcon fontSize="small" /></Button>            
+                        <Button variant="contained" color="error" onClick={() => handleDeletar(row.idTarefa)}><DeleteIcon 
+                          sx={{
+                            transition: 'transform 0.2s ease-in-out', // animação de transição
+                            '&:hover': {
+                              transform: 'scale(1.1)', // aumenta o tamanho do botão ao passar o mouse
+                            },
+                          }}
+                        fontSize="small" /></Button>            
                       </TableCell>
                     </TableRow>
                 ))}
@@ -134,8 +148,9 @@ const ListarTarefa = () => {
             </TableContainer>
         </CardContent>
         <CardActions>
-            <Button size="small" variant="contained" onClick={handleOpen}>Criar Tarefa</Button>
-            <Button size="small" variant="outlined">Cancelar</Button>
+            <Button size="medium" variant="contained" onClick={handleOpen} 
+                      sx={{ backgroundColor: 'rgb(60, 127, 139)',"&:hover": {backgroundColor: "rgb(139, 72, 60)"}}} > Criar Tarefa </Button>
+            <Button size="medium" variant="contained" sx={{ backgroundColor: 'rgb(139, 72, 60)',"&:hover": {backgroundColor: "rgb(60, 127, 139)"}}} >Cancelar</Button>
       </CardActions> 
     </Card>
     <div>
